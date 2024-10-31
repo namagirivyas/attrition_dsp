@@ -34,5 +34,6 @@ jobs:
         env: 
           WORKSPACE_KEY: ${{ secrets.WORKSPACE_KEY }}
         run: |
-          prefect deployment run 'main-flow/attrition-ds-workflow' --workspace-key $WORKSPACE_KEY
+#          prefect deployment run 'main-flow/attrition-ds-workflow' --workspace-key $WORKSPACE_KEY
+          prefect deployment run 'main-flow/attrition-ds-workflow' -p workspace-key=$WORKSPACE_KEY
     
