@@ -32,8 +32,9 @@ def run_task(script_name):
 def main_flow():
     # Run tasks sequentially and capture the results
    data1 = run_task("BasicStats.py")
-   data2 = run_task("Binning.py", wait_for=[data1])  
-   data3 = run_task("PearsonCorrelation.py", wait_for=[data2]) 
+   data2 = run_task("Binning.py", wait_for=[data1])
+   data3 = run_task("Normalization.py", wait_for=[data2])
+   data4 = run_task("PearsonCorrelation.py", wait_for=[data3])
 
 # To run locally
 if __name__ == "__main__":
