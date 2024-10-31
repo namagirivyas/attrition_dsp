@@ -12,7 +12,7 @@ from sklearn.preprocessing import MinMaxScaler
 def load_dataset():
     # Load the dataset
     #url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv"
-    df = pd.read_csv("WA_Fn-UseC_-HR-Employee-Attrition.csv")
+    df = pd.read_csv("./flows/WA_Fn-UseC_-HR-Employee-Attrition.csv")
     # column_names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'Attrition']
     return df;
     # return pd.read_csv(url, names=column_names)
