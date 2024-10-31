@@ -49,9 +49,9 @@ img_base64 = base64.b64encode(buf.read()).decode('utf-8')
 #logger.info(f"data:image/png;base64,{img_base64}")
 
 # Save the plot as a file
-output_path = os.path.join(os.path.dirname(__file__), '../output', "boxplot.png")
+output_path = os.path.join(os.path.dirname(__file__), '../output')
 # pyplot.savefig("../output/boxplot.png")
-pyplot.savefig(output_path)
+pyplot.savefig(output_path + "boxplot.png")
 logger.info("Scatter plot saved as 'boxplot.png'")
 
 # Close the buffer
