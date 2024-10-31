@@ -8,7 +8,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-df = pd.read_csv("../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+df = pd.read_csv("WA_Fn-UseC_-HR-Employee-Attrition.csv")
 logger.info(df)
 
 # 1. Age Binning
