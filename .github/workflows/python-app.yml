@@ -33,6 +33,6 @@ jobs:
       - name: Run Prefect deployment on Prefect Cloud
         env:
           WORKSPACE_KEY: ${{ secrets.WORKSPACE_KEY }}
-          PREFECT_API_KEY: ${{ secrets.PREFECT_API_KEY }}
         run: |
-          prefect deployment apply ../../deployment.yml
+          python ../flows/workflow.py
+
