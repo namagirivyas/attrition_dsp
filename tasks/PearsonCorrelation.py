@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 # Import your data into Python
-df = pd.read_csv("WA_Fn-UseC_-HR-Employee-Attrition.csv")
+df = pd.read_csv("../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
  
 # Convert dataframe into series
 list1 = df['Age']
@@ -46,7 +46,7 @@ img_base64 = base64.b64encode(buf.read()).decode('utf-8')
 #logger.info(f"data:image/png;base64,{img_base64}")
 
 # Save the plot as a file
-pyplot.savefig("boxplot.png")
+pyplot.savefig("../output/boxplot.png")
 logger.info("Scatter plot saved as 'boxplot.png'")
 
 # Close the buffer

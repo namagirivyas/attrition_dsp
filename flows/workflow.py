@@ -6,13 +6,17 @@
 import pandas as pd
 from prefect import flow, task
 from sklearn.preprocessing import MinMaxScaler
+import os
 
 # Step 2: Load the Dataset
 @task
 def load_dataset():
     # Load the dataset
     #url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv"
-    df = pd.read_csv("./flows/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+    # df = pd.read_csv("WA_Fn-UseC_-HR-Employee-Attrition.csv")
+    script_path = os.path.join(os.path.dirname(__file__), '../data', "../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+    df = pd.read_csv(script_path)
+
     # column_names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'Attrition']
     return df;
     # return pd.read_csv(url, names=column_names)
