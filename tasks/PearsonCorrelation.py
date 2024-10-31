@@ -1,45 +1,37 @@
+# Compute the Pearson Correlation between the features 'Age' and 'JobInvolvement'
 import pandas as pd
 from scipy.stats import pearsonr
-import logging
-from matplotlib import pyplot as plt
-import io
-import base64
+import seaborn as sns
 
-# Configure standard Python logging
+import logging
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Import the data
-df = pd.read_csv("../data/Covid_data.csv")
-logger.info("Dataset loaded for Pearson correlation.")
-
-# Convert columns to series
+# Import your data into Python
+df = pd.read_csv("../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+ 
+# Convert dataframe into series
 list1 = df['Age']
-list2 = df['DaysOfStay']
+list2 = df['JobInvolvement']
 
-# Compute Pearson correlation
+# Apply the pearsonr()
 corr, _ = pearsonr(list1, list2)
-logger.info(f'Pearson correlation: {corr:.3f}')
+logger.info('Pearson correlation: %.3f' % corr)
 
-# Scatter plot
-plt.scatter(list1, list2)
-plt.xlabel('Age')
-plt.ylabel('Days of Stay')
-plt.title('Scatter plot of Age vs Days of Stay')
+# Pearson correlation: 0.205 (Moderate Positive correlation)
+# Interpretaton:
+# As the age of the patient increases, days of stay in hospital also increases
+from matplotlib import pyplot
+# pyplot.scatter(list1, list2)
+# pyplot.show()
 
-# Save the plot to a buffer
-buf = io.BytesIO()
-plt.savefig(buf, format='png')
-buf.seek(0)
+pyplot.figure(figsize=(10, 6))
+sns.boxplot(data=df, x='JobInvolvement', y='Age', palette="Set2")
+pyplot.title("Age Distribution by Job Involvement Level")
+pyplot.xlabel("Job Involvement")
+pyplot.ylabel("Age")
+pyplot.show()
 
-# Encode the image in base64 and log it
-img_base64 = base64.b64encode(buf.read()).decode('utf-8')
-#logger.info("Scatter plot image (base64 encoded):")
-#logger.info(f"data:image/png;base64,{img_base64}")
 
-# Save the plot as a file
-plt.savefig("../output/scatter_plot.png")
-logger.info("Scatter plot saved as 'scatter_plot.png'")
 
-# Close the buffer
-buf.close()

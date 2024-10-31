@@ -9,23 +9,29 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 # Load the dataset
-df = pd.read_csv("../data/Covid_data.csv")
+df = pd.read_csv("../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+#print(df)
 logger.info("Dataset loaded successfully.")
 logger.info(f"DataFrame head:\n{df.head()}")
 
-# Convert date columns to datetime format
-df['Admit_date'] = pd.to_datetime(df['Admit_date'], errors='coerce', dayfirst=True)
-df['Discharge_date'] = pd.to_datetime(df['Discharge_date'], errors='coerce', dayfirst=True)
-logger.info("Converted date columns to datetime format.")
+# # Convert date columns to datetime format
+# There are no date specific fields to be handled
 
 # Summary statistics
-logger.info("Summary Statistics:")
-logger.info(f"\n{df.describe(include='all', datetime_is_numeric=True)}")
+logger.info("\nSummary Statistics:")
+pd.set_option('display.max_columns', None)
+logger.info(df.describe(include='all'))
+pd.reset_option('display.max_columns')
 
 # Checking for missing values
-logger.info("Missing Values:")
-logger.info(f"\n{df.isnull().sum()}")
+logger.info("\nMissing Values:")
+logger.info(df.isnull().sum())
 
 # Data type information
-logger.info("Data Types:")
-logger.info(f"\n{df.dtypes}")
+logger.info("\nData Types:")
+logger.info(df.dtypes)
+
+# Attrition values from given dataset
+attrition_counts = df['Attrition'].value_counts()
+# logger.info("\nAttrition:")
+logger.info(attrition_counts)
