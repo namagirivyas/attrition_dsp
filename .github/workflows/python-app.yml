@@ -34,5 +34,5 @@ jobs:
         env:
           WORKSPACE_KEY: ${{ secrets.WORKSPACE_KEY }}
         run: |
-          python ../flows/workflow.py
+          python ./flows/workflow.py
 
