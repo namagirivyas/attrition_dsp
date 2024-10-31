@@ -30,9 +30,14 @@ jobs:
         run: |
           prefect cloud login --key $PREFECT_API_KEY --workspace 'bits-apidriven/default'
 
+#      - name: Run Prefect deployment on Prefect Cloud
+#        env:
+#          WORKSPACE_KEY: ${{ secrets.WORKSPACE_KEY }}
+#        run: |
+#          prefect deployment run 'workflow-employee-attrition/employee-attrition-analysis-workflow'
+    
       - name: Run Prefect deployment on Prefect Cloud
-        env: 
+        env:
           WORKSPACE_KEY: ${{ secrets.WORKSPACE_KEY }}
         run: |
-          prefect deployment run 'workflow_employee_attrition/employee-attrition-analysis-workflow'
-    
+          prefect deployment run 'main-flow/attrition-ds-workflow'

@@ -83,4 +83,4 @@ if __name__ == "__main__":
     workflow_employee_attrition.serve(name="employee-attrition-analysis-workflow",
                       tags=["first workflow"],
                       parameters={},
-                      interval=120)
+                      interval=60)
