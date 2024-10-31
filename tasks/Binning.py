@@ -4,11 +4,14 @@
 import pandas as pd
 import numpy as np
 import logging
+import os
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-df = pd.read_csv("../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+# df = pd.read_csv("../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+script_path = os.path.join(os.path.dirname(__file__), '../data', "WA_Fn-UseC_-HR-Employee-Attrition.csv")
+df = pd.read_csv(script_path)
 logger.info(df)
 
 # 1. Age Binning

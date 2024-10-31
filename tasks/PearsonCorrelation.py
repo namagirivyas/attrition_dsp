@@ -6,13 +6,16 @@ import seaborn as sns
 import logging
 import io
 import base64
+import os
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 # Import your data into Python
-df = pd.read_csv("../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
- 
+# df = pd.read_csv("../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+script_path = os.path.join(os.path.dirname(__file__), '../data', "WA_Fn-UseC_-HR-Employee-Attrition.csv")
+df = pd.read_csv(script_path)
+
 # Convert dataframe into series
 list1 = df['Age']
 list2 = df['JobInvolvement']
@@ -46,7 +49,9 @@ img_base64 = base64.b64encode(buf.read()).decode('utf-8')
 #logger.info(f"data:image/png;base64,{img_base64}")
 
 # Save the plot as a file
-pyplot.savefig("../output/boxplot.png")
+output_path = os.path.join(os.path.dirname(__file__), '../output', "boxplot.png")
+# pyplot.savefig("../output/boxplot.png")
+pyplot.savefig(output_path)
 logger.info("Scatter plot saved as 'boxplot.png'")
 
 # Close the buffer

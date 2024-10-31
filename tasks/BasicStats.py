@@ -3,13 +3,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import logging
+import  os
 
 # Configure standard logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 # Load the dataset
-df = pd.read_csv("../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+# df = pd.read_csv("../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+script_path = os.path.join(os.path.dirname(__file__), '../data', "WA_Fn-UseC_-HR-Employee-Attrition.csv")
+df = pd.read_csv(script_path)
+
 #print(df)
 logger.info("Dataset loaded successfully.")
 logger.info(f"DataFrame head:\n{df.head()}")
