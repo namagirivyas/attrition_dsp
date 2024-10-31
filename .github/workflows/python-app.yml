@@ -35,4 +35,4 @@ jobs:
           WORKSPACE_KEY: ${{ secrets.WORKSPACE_KEY }}
           PREFECT_API_KEY: ${{ secrets.PREFECT_API_KEY }}
         run: |
-          prefect deployment build ./flows/workflow_attrition.py:main_flow -n "workflow-employee-attrition" --apply
+          prefect deployment apply ../../deployment.yml
