@@ -29,28 +29,19 @@ def preprocess_data(df):
     # Replace with Median value
     df.fillna(df.median(), inplace=True)
 
-    # numerical_features = ['Age', 'DistanceFromHome', 'HourlyRate', 'MonthlyIncome']
-    # from sklearn.preprocessing import MinMaxScaler
-    #
-    # # Initialize the scaler
-    # scaler = MinMaxScaler()
-    #
-    # # Apply the scaler to the selected numerical features
-    # df[numerical_features] = scaler.fit_transform(df[numerical_features])
-    #
-    # # Check the resulting DataFrame
-    # print(df[numerical_features].head())
-    #
-    # # scaler = MinMaxScaler()
-    # # features = df.drop('Attrition', axis=1)  # Exclude the target variable
-    # # df_normalized = pd.DataFrame(scaler.fit_transform(features), columns=features.columns)
-    # df_normalized['Attrition'] = df['Attrition']  # Add the target variable back to the dataframe
-    #
-    # # Print the normalized dataframe
-    # print("Normalized DataFrame:")
-    # print(df_normalized.head())  # Printing only the first few rows for brevity
-    #
-    # return df_normalized
+    # Define numerical columns to normalize
+    numerical_features = ['Age', 'DistanceFromHome', 'HourlyRate', 'MonthlyIncome']
+
+    # Initialize the scaler and apply it to the selected numerical features
+    scaler = MinMaxScaler()
+    df[numerical_features] = scaler.fit_transform(df[numerical_features])
+
+    # Print the normalized numerical features
+    print("Normalized Numerical Features:")
+    print(df[numerical_features].head())
+
+    # Return the modified DataFrame with normalized values
+    return df
 
 # Step 4: Model Training
 @task
