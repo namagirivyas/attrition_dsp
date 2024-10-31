@@ -4,6 +4,8 @@ from scipy.stats import pearsonr
 import seaborn as sns
 
 import logging
+import io
+import base64
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -32,6 +34,23 @@ pyplot.title("Age Distribution by Job Involvement Level")
 pyplot.xlabel("Job Involvement")
 pyplot.ylabel("Age")
 pyplot.show()
+
+# Save the plot to a buffer
+buf = io.BytesIO()
+pyplot.savefig(buf, format='png')
+buf.seek(0)
+
+# Encode the image in base64 and log it
+img_base64 = base64.b64encode(buf.read()).decode('utf-8')
+#logger.info("Scatter plot image (base64 encoded):")
+#logger.info(f"data:image/png;base64,{img_base64}")
+
+# Save the plot as a file
+pyplot.savefig("../output/boxplot.png")
+logger.info("Scatter plot saved as 'boxplot.png'")
+
+# Close the buffer
+buf.close()
 
 
 
