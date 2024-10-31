@@ -8,7 +8,7 @@ import requests
 PREFECT_API_KEY = "pnu_Dmt476lvZUvXPmVjAdQrD4gzxbsvXn48lXEk"  # Your Prefect Cloud API key
 ACCOUNT_ID = "1ad1f5eb-3fa3-437c-aae3-a2d0de99dabd"  # Your Prefect Cloud Account ID
 WORKSPACE_ID = "b5993e26-48d5-4824-858e-29a3a4cf67d1"  # Your Prefect Cloud Workspace ID
-DEPLOYMENT_ID = "0ba4ca1b-8471-4acf-a121-8568ce7b5f51"  # Your Deployment ID
+DEPLOYMENT_ID = "a28bdd27-2778-492c-b685-5b80faba853b"  # Your Deployment ID
 
 # Correct API URL to get deployment details
 PREFECT_API_URL = f"https://api.prefect.cloud/api/accounts/{ACCOUNT_ID}/workspaces/{WORKSPACE_ID}/deployments/{DEPLOYMENT_ID}"
