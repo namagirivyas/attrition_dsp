@@ -12,19 +12,24 @@ logger = logging.getLogger(__name__)
 # df = pd.read_csv("../data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
 script_path = os.path.join(os.path.dirname(__file__), '../data', "WA_Fn-UseC_-HR-Employee-Attrition.csv")
 df = pd.read_csv(script_path)
+logger.info('\n')
 logger.info(df)
 
 # 1. Age Binning
 # Formula -> interval = (max-min) / Number of Bins
 age_bins = np.linspace(df['Age'].min(),df['Age'].max(),6)
+logger.info('\n')
 logger.info(age_bins)
 labels = ['Under 25', '25-35', '36-45', '46-55', '56+'];
 df['Age_Bins'] = pd.cut(df['Age'], bins=age_bins, labels=labels)
+logger.info('\n')
 logger.info(df['Age_Bins'])
 
 # 2. Monthly income Binning
 monthly_bins = np.linspace(df['MonthlyIncome'].min(),df['MonthlyIncome'].max(),5)
+logger.info('\n')
 logger.info(monthly_bins)
 labels=['Low', 'Medium', 'High', 'Very High']
 df['MonthlyIncome_Bin'] = pd.cut(df['MonthlyIncome'], bins=monthly_bins, labels=labels)
+logger.info('\n')
 logger.info(df['MonthlyIncome_Bin'])

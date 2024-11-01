@@ -22,6 +22,7 @@ list2 = df['JobInvolvement']
 
 # Apply the pearsonr()
 corr, _ = pearsonr(list1, list2)
+logger.info('\n')
 logger.info('Pearson correlation: %.3f' % corr)
 
 # Pearson correlation: 0.205 (Moderate Positive correlation)
@@ -52,8 +53,9 @@ img_base64 = base64.b64encode(buf.read()).decode('utf-8')
 output_path = os.path.join(os.path.dirname(__file__), '../output')
 # pyplot.savefig("../output/boxplot.png")
 pyplot.savefig(output_path + "\\boxplot.png")
+logger.info('\n')
 logger.info(f'Scatter plot boxplot.png saved path: {output_path}')
-
+logger.info('\n')
 # Close the buffer
 buf.close()
 

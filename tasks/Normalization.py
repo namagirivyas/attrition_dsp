@@ -29,10 +29,12 @@ scaler = MinMaxScaler()
 df[numerical_features] = scaler.fit_transform(df[numerical_features])
 
 # Check the resulting DataFrame
+logger.info('\n')
 logger.info(df[numerical_features].head())
 
 from sklearn.preprocessing import StandardScaler
 logger.info('\nStandardization Z-score')
+logger.info('\n')
 # Initialize the scaler
 scaler = StandardScaler()
 
@@ -40,4 +42,5 @@ scaler = StandardScaler()
 df[numerical_features] = scaler.fit_transform(df[numerical_features])
 
 # Check the resulting DataFrame
+logger.info('\n')
 logger.info(df[numerical_features].head())

@@ -15,24 +15,24 @@ script_path = os.path.join(os.path.dirname(__file__), '../data', "WA_Fn-UseC_-HR
 df = pd.read_csv(script_path)
 
 #print(df)
-logger.info("Dataset loaded successfully.")
+logger.info("Dataset loaded successfully.\n")
 logger.info(f"DataFrame head:\n{df.head()}")
 
 # # Convert date columns to datetime format
 # There are no date specific fields to be handled
 
 # Summary statistics
-logger.info("\nSummary Statistics:")
+logger.info("\nSummary Statistics:\n")
 pd.set_option('display.max_columns', None)
 logger.info(df.describe(include='all'))
 pd.reset_option('display.max_columns')
 
 # Checking for missing values
-logger.info("\nMissing Values:")
+logger.info("\nMissing Values:\n")
 logger.info(df.isnull().sum())
 
 # Data type information
-logger.info("\nData Types:")
+logger.info("\nData Types:\n")
 logger.info(df.dtypes)
 
 # Attrition values from given dataset
