@@ -27,6 +27,8 @@ def save_plot(filename="plot.png", folder="../output"):
     plt.savefig(file_path)
     logger.info(f'Charts saved to path: {file_path}')
 
+    plt.clf()
+    plt.close()
     # Close the buffer
     buf.close()
 
