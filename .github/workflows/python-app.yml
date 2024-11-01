@@ -41,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: saved-images
-          path: /home/runner/work/attrition_dsp/attrition_dsp/output/boxplot.png
+          path: /home/runner/work/attrition_dsp/attrition_dsp/output

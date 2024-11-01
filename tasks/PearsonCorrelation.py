@@ -46,13 +46,13 @@ buf.seek(0)
 
 # Encode the image in base64 and log it
 img_base64 = base64.b64encode(buf.read()).decode('utf-8')
-#logger.info("Scatter plot image (base64 encoded):")
-#logger.info(f"data:image/png;base64,{img_base64}")
+logger.info("Scatter plot image (base64 encoded):")
+logger.info(f"data:image/png;base64,{img_base64}")
 
 # Save the plot as a file
 output_path = os.path.join(os.path.dirname(__file__), '../output')
 # pyplot.savefig("../output/boxplot.png")
-pyplot.savefig(output_path + "\\boxplot.png")
+pyplot.savefig(output_path + "/boxplot.png")
 logger.info('\n')
 logger.info(f'Scatter plot boxplot.png saved path: {output_path}')
 logger.info('\n')
