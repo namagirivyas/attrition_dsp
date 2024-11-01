@@ -11,8 +11,10 @@ import os
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-df = pd.read_csv("WA_Fn-UseC_-HR-Employee-Attrition.csv")
-print(df)
+script_path = os.path.join(os.path.dirname(__file__), '../data', "WA_Fn-UseC_-HR-Employee-Attrition.csv")
+df = pd.read_csv(script_path)
+logger.info('\n')
+logger.info(df)
 
 from sklearn import preprocessing
 import matplotlib.pyplot as plt
