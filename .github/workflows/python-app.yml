@@ -41,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: saved-images
-          path: output/
+          path: /home/runner/work/attrition_dsp/attrition_dsp/flows/../tasks/../output
