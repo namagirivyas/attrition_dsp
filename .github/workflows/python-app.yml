@@ -34,7 +34,8 @@ jobs:
         env:
           WORKSPACE_KEY: ${{ secrets.WORKSPACE_KEY }}
         run: |
-          nohup python ./flows/workflow_attrition.py
+          python ./flows/workflow_attrition.py &
+          sleep 180
 
       - name: Upload Image
         uses: actions/upload-artifact@v3
